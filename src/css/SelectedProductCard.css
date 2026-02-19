@@ -1,0 +1,95 @@
+
+.sp_cardWrap{
+  margin-top: 16px;
+  padding: 0px 15px;
+  background-color: #F9F9F9;
+}
+
+.sp_content{
+  padding: 16px 0px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0px 16px;
+  min-height: 112px;
+}
+
+.sp_content_left img{
+  width: 64px;
+  height: 80px;
+}
+
+.sp_content_right{
+  padding: 0px;
+  position: relative;
+}
+
+.sp_content_right .sp_name{
+  margin-bottom: 4px;
+  padding-right: 50px;
+}
+
+.sp_content_right .sp_closeBtn{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.sp_content_right .sp_closeBtn img{
+  width: 15px;
+  width: 15px;
+  opacity: 0.4;
+}
+
+.sp_content_right .sp_option{
+  font-size: 13px;
+  color: #757575;
+}
+
+
+/* ======= 수량 버튼 구역 ======= */
+.sp_content_right .sp_quantity{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  font-weight: bold;
+}
+
+.sp_content_right .sp_quantityBtn{
+  display: flex;
+}
+
+.sp_quantityBtn button{
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sp_quantityBtn button img{
+  width: 11px;
+}
+
+.sp_quantityBtn button:hover{
+  border: 1px solid #aaaaaa;
+  background-color: #F9F9F9;
+}
+
+.sp_quantityBtn div{
+  width: 50px;
+  height: 30px;
+  background-color: white;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+  align-content: center;
+  font-weight: 600;
+}
+
+.sp_content_right .sp_price{
+  font-size: 15px;
+}

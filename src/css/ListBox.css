@@ -1,0 +1,112 @@
+
+.listBox a{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.listBox a:hover{ text-decoration: underline !important; }
+.listBox a:visited{ color: black; }
+
+/* img */
+.listBox .lb-imgBox{
+  position: relative; /* hover 이미지 겹치게 */
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.lb-imgBox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.02); /* 검정 반투명 레이어 */
+  pointer-events: none; /* 클릭 방해 안함 */
+}
+.lb-productimg{ 
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  transition: opacity 0.25s ease-in-out; 
+}
+.lb-productimg.hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.listBox .lb-imgBox:hover .lb-productimg.main {
+  opacity: 0;
+}
+
+.listBox .lb-imgBox:hover .lb-productimg.hover {
+  opacity: 1;
+}
+.lb-rank{
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  color: black;
+  font-family: 'Gza';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  z-index: 100;
+}
+
+
+.lb-brand, .lb-rate, .lb-delivery, .lb-pricebox{ margin-top: 10px; }
+.lb-name{ 
+  margin-top: 4px; 
+  line-height: 19px;
+}
+.lb-pricebox{ display: flex; }
+.lb-discount{
+  margin-right: 5px;
+  color: #DC2832;
+  font-weight: bold;
+}
+.lb-price{
+  margin-right: 10px;
+  color: #CCCCCC;
+  text-decoration: line-through;
+}
+.lb-discount-price{ font-weight: bold; }
+.lb-rate{ font-size: 12px; }
+.lb-colorbox{ margin-top: 10px; }
+.lb-delivery{
+  display: flex;
+  align-items: center;
+}
+.lb-delivery img{
+  margin-right: 3px;
+  width: 14px;
+  height: 8px;
+}
+.lb-colorbox{ display: flex; }
+.lb-colorbox div{ 
+  margin-right: 3px;
+  width: 12px; 
+  height: 12px; 
+}
+.lb-state{
+  margin-right: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #DC2832;
+}
+.lb-note{
+  font-size: 11px;
+  margin-top: 15px;
+  padding: 3px 4px 2px 5px;
+  border: 1px solid #eeeeee;
+  display: inline-block;   /* 텍스트 길이만큼만 차지 */
+  width: fit-content;      /* 글자 크기에 맞게 */
+  max-width: 100%; 
+}

@@ -1,0 +1,508 @@
+/* .order-main-second {
+    display: flex;
+}
+.order-info-h3{
+    font-weight: 500;
+}
+.order-info-span {
+    margin-left: 15px;
+    color: red;
+}
+
+.order-table{
+    border: 3px solid black;
+} */
+
+.order-main {
+  margin-top: -20px;
+}
+
+.order-main-second {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding: 24px 0 10px 0;
+}
+
+.order-info-h3 {
+  font-weight: 300;
+  margin: 0;
+}
+
+.order-info-span {
+  margin-left: 15px;
+  color: #cc2b2b;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.order-table thead th {
+  background: #fafbfc;
+  font-weight: 700;
+  font-size: 16px;
+  border-bottom: 2px solid #292929;
+  padding: 14px 8px;
+  letter-spacing: 0.3px;
+}
+
+.order-row {
+  background: #fff;
+}
+
+.td-info,
+.td-price,
+.td-coupon,
+.td-delivery {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px 16px;
+  vertical-align: top;
+}
+
+.td-delivery {
+  text-align: center;
+  color: #444;
+  font-weight: 600;
+  font-size: 15px;
+  min-width: 60px;
+}
+
+.order-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.item-image {
+  width: 110px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.item-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  justify-content: flex-start;
+}
+
+.brand-name {
+  font-weight: 300;
+  color: #222;
+  font-size: 10px;
+}
+
+.item-name {
+  font-size: 15px;
+  color: #444;
+  font-weight: 300;
+  margin: 2px 0 3px 0;
+}
+
+.order-color-size {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.delivery-date {
+  color: #cc2b2b;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.origin-price {
+  color: #aaa;
+  font-size: 15px;
+  text-decoration: line-through;
+  font-weight: 400;
+  margin-right: 7px;
+}
+
+.td-price em {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+  margin-right: 5px;
+}
+
+.discount {
+  color: #cc2b2b;
+  font-weight: 500;
+  font-size: 15px;
+  margin-left: 2px;
+}
+
+.price-info-btn,
+.coupon-change-btn {
+  margin-top: 5px;
+  padding: 2px 12px;
+  font-size: 14px;
+  border: 1px solid #dfdfdf;
+  background: #fafbfc;
+  border-radius: 4px;
+  color: #444;
+  cursor: pointer;
+}
+
+.price-info-btn:hover,
+.coupon-change-btn:hover {
+  background: #f4eaea;
+  border-color: #cc2b2b;
+  color: #cc2b2b;
+}
+
+.order-benefit {
+  margin-top: 30px;
+  padding: 18px 24px;
+  background: #f6f8fa;
+  border-radius: 7px;
+}
+
+.benefit-title {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.benefit-info {
+  color: #444;
+  font-size: 15px;
+}
+
+/* OrderDetail Table CSS */
+
+.orderdet_container {
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+.orderdet_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.orderdet_title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+.orderdet_directInput {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.orderdet_directInput:hover {
+  background: #e9ecef;
+}
+
+/* Table 스타일 */
+.orderdet_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: inherit;
+}
+
+.orderdet_table_row {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.orderdet_table_label {
+  width: 120px;
+  min-width: 120px;
+  padding: 8px 20px 8px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  vertical-align: top;
+  text-align: left;
+}
+
+.orderdet_table_input {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+.orderdet_question {
+  color: #ccc;
+  font-size: 14px;
+  cursor: help;
+  margin-left: 4px;
+}
+
+.orderdet_input {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  background: white;
+  color: #333;
+  width: 280px;
+  box-sizing: border-box;
+}
+
+.orderdet_input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.orderdet_input::placeholder {
+  color: #ccc;
+}
+
+.orderdet_phoneGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.orderdet_phonePrefix {
+  padding: 8px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  background: white;
+  width: 70px;
+  box-sizing: border-box;
+}
+
+.orderdet_phoneInput {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  width: 80px;
+  box-sizing: border-box;
+}
+
+.orderdet_separator {
+  color: #ccc;
+  font-size: 14px;
+  margin: 0 2px;
+}
+
+.orderdet_addressGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderdet_zipGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.orderdet_zipInput {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  width: 100px;
+  background: #f8f9fa;
+  color: #999;
+  box-sizing: border-box;
+}
+
+.orderdet_zipButton {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.orderdet_zipButton:hover {
+  background: #e9ecef;
+}
+
+.orderdet_addressInput {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+.orderdet_addressInput:disabled {
+  background: #f8f9fa;
+  color: #999;
+}
+
+/* 배송요청사항 스타일 */
+.orderdet_deliveryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderdet_deliverySelect {
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  background: white;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+.orderdet_deliveryTextarea {
+  width: 400px;
+  min-height: 80px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.orderdet_deliveryTextarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.orderdet_deliveryTextarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.orderdet_notice {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #666;
+  padding: 0;
+  background: none;
+}
+
+.orderdet_notice p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.orderdet_saveOption {
+  margin-top: 20px;
+  padding: 0;
+  border: none;
+}
+
+.orderdet_checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.orderdet_checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .orderdet_container {
+    padding: 16px;
+  }
+
+  .orderdet_table_row {
+    display: block;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 16px;
+  }
+
+  .orderdet_table_label,
+  .orderdet_table_input {
+    display: block;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  .orderdet_table_label {
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .orderdet_input,
+  .orderdet_addressInput,
+  .orderdet_deliverySelect,
+  .orderdet_deliveryTextarea {
+    width: 100%;
+  }
+
+  .orderdet_phoneGroup {
+    flex-wrap: wrap;
+  }
+
+  .orderdet_zipGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .orderdet_zipInput {
+    width: 100%;
+  }
+}
+
+/* 결제수단 */
+.payment-titleArea{
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  align-items: center;
+}
+.payment-titleArea .payment-title{
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.payment-titleArea .payment-btn{
+  border: 1px solid #dddddd;
+  padding: 0px 10px;
+  background-color: white;
+  height: 28px;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+
+

@@ -1,0 +1,343 @@
+/* ===================== */
+/* 헤더 전체 */
+.tm-header {
+  /* position: sticky; */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 0 var(--tm-border);
+  overflow: visible; /* 검색 모달이 보이도록 visible로 변경 */
+  background-color: white;
+}
+
+/* ===================== */
+/* 상단 바 */
+.tm-header-inner {
+  background: #fff;
+  width: var(--body-max); /* max-width 대신 고정 width 사용 */
+  margin: 0 auto;
+  padding: 14px var(--tm-gap);
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  align-items: center;
+  gap: var(--tm-gap);
+  overflow: visible; /* 검색 모달이 보이도록 */
+}
+
+/* 로고 */
+.tm-logo img {
+  display: block;
+  height: 28px;
+}
+
+/* 검색 */
+.tm-search {
+  padding: 0 var(--tm-gap);
+  position: relative; /* 검색 레이어가 헤더를 넘어갈 수 있도록 */
+  z-index: 3000; /* 검색 모달이 다른 요소들보다 위에 오도록 */
+}
+
+/* 우측 유틸 */
+.tm-utilities {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 그룹들 사이 간격 증가 */
+  position: relative;
+}
+
+.tm-util {
+  font-size: 13px;
+  color: var(--tm-text);
+  text-decoration: none;
+  display: inline-flex; /* 추가 */
+  align-items: center; /* 추가 */
+  height: 20px; /* 추가 - 일정한 높이 */
+  line-height: 1; /* 추가 - 라인 높이 통일 */
+  vertical-align: middle; /* 추가 */
+}
+
+.tm-util span {
+  display: inline-block; /* 추가 */
+  line-height: 1; /* 추가 */
+}
+
+.tm-util:hover {
+  text-decoration: underline;
+}
+
+/* ===================== */
+/* 마이페이지 드롭다운 */
+.tm-mypage {
+  position: relative;
+}
+
+.tm-mypage-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid var(--tm-border);
+  border-radius: 8px;
+  box-shadow: var(--tm-shadow);
+  padding: 8px 0;
+  display: none;
+  z-index: 2500;
+}
+
+.tm-mypage:hover .tm-mypage-menu {
+  display: block;
+}
+
+.tm-mypage-menu a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--body-text);
+  text-decoration: none;
+}
+
+.tm-mypage-menu a:hover {
+  background: #f7f7f7;
+}
+
+/* ===================== */
+/* 앱 다운로드 + QR */
+.tm-app {
+  position: relative; /* QR코드 팝업 위치 기준 */
+}
+
+.tm-app-btn {
+  font-size: 13px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 6px 8px;
+  color: var(--body-text);
+}
+
+/* QR 팝업 (QrCode 감싸는 div) */
+.tm-app-popover {
+  position: absolute;
+  top: calc(100% + 10px); /* 버튼 아래 */
+  right: 0; /* 오른쪽 정렬 */
+  z-index: 1200;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--tm-border);
+  border-radius: 8px;
+  box-shadow: var(--tm-shadow);
+}
+
+/* ===================== */
+/* 1depth GNB 바 */
+.tm-gnb {
+  background: #fff;
+  border-top: 1px solid var(--tm-border);
+  border-bottom: 1px solid var(--tm-border);
+  min-width: var(--tm-max); /* 최소 너비 고정 */
+  overflow: visible; /* 넘치는 부분 숨김 */
+  position: relative;
+}
+
+.tm-gnb-inner {
+  width: var(--body-max); /* max-width 대신 고정 width 사용 */
+  margin: 0 auto;
+  padding: 0 var(--tm-gap);
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 40px; /* 간격을 더 여유롭게 */
+}
+
+.tm-gnb-inner a {
+  font-size: 14px;
+  color: var(--body-text);
+  text-decoration: none;
+  padding: 6px 0;
+}
+
+.tm-gnb-inner a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* 오른쪽 그룹 앞에 세로선 - 간격 조정 */
+.app-download {
+  border-left: 1px solid #ccc;
+  padding-left: 20px; /* 패딩 증가 */
+  margin-left: 6px; /* 약간의 마진 추가 */
+}
+
+.tm-util-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===================== */
+/* 햄버거 메뉴 (RiMenu) 스타일 */
+.tm-gnb-all-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* 다른 메뉴와의 간격 */
+}
+
+.tm-gnb-all {
+  background: none;
+  border: none;
+  border-left: 1px solid var(--tm-border); /* 왼쪽 보더 */
+  border-right: 1px solid var(--tm-border); /* 오른쪽 보더 */
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #333;
+  height: 44px; /* GNB 높이와 동일 */
+  width: 50px;
+  border-radius: 0;
+  transition: background-color 0.2s ease;
+  margin: 0;
+}
+
+.tm-gnb-all:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.menu-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-dropdown-trigger {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  display: flex;
+  min-height: 750px;
+}
+
+.depth-column {
+  min-width: 180px;
+  width: 180px;
+  min-height: 750px;
+  border-right: 1px solid #eee;
+  background: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.depth-column::-webkit-scrollbar {
+  display: none;
+}
+
+.depth-column:last-child {
+  border-right: none;
+}
+
+.menu-item {
+  position: relative;
+  border-bottom: none;
+  transition: all 0.2s ease;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background: #f7f7f7;
+}
+
+.menu-item.active {
+  background: #f0f0f0;
+}
+
+.menu-link {
+  display: block;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+  height: 38px;
+  line-height: 20px;
+  box-sizing: border-box;
+  text-indent: 20px;
+}
+
+.menu-link:hover {
+  color: #000;
+}
+
+/* 아울렛 드롭다운 전용 스타일 */
+.outlet-link {
+  font-size: 14px;
+  color: #222;
+  text-decoration: none;
+  padding: 6px 0;
+  display: inline-block;
+}
+
+.outlet-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.outlet-link::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* 링크 아래 10px 투명 영역 */
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: transparent;
+}
+
+.tm-watched-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tm-watched-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* 투명한 연결 영역 추가 */
+.tm-watched-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 6px; /* margin-top과 같은 크기 */
+  background: transparent;
+  z-index: 1999;
+} 
+
+.tm-watched-link {
+  color: #333;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  display: block;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  font: inherit;
+}
+.tm-watched-link:hover {
+  color: #007bff;
+}

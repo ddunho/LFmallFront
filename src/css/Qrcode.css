@@ -1,0 +1,39 @@
+.HeaderNew_qrCode__nx8Te {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 220px;         /* 전체 박스 크기 */
+  padding: 15px;        /* 내부 여백 */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* 살짝 그림자 */
+}
+
+.HeaderNew_qrCode__nx8Te p {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.HeaderNew_qrCode__nx8Te span {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.qrCode_img {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  background: #fff;
+}
+
+.qrCode_img img {
+  width: 160px;   /* QR코드 크기 */
+  height: 160px;
+}

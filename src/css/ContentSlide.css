@@ -1,0 +1,137 @@
+
+/* 기본적으로 화살표 숨기기 */
+.content-slide .swiper-button-next,
+.content-slide .swiper-button-prev {
+  opacity: 0;
+  background: none;
+  width: 50px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 기본 화살표 텍스트 제거 */
+.content-slide .swiper-button-next::after,
+.content-slide .swiper-button-prev::after {
+  content: '';
+}
+
+/* 이미지 적용 */
+.content-slide .swiper-button-next {
+  background-image: url('../pic/icon/slide_next_icon.png');
+}
+
+.content-slide .swiper-button-prev {
+  background-image: url('../pic/icon/slide_prev_icon.png');
+}
+
+/* 화살표 위치 조정 */
+.content-slide .swiper-button-prev {
+  left: 80px;
+}
+
+.content-slide .swiper-button-next {
+  right: 80px;
+}
+
+/* 슬라이더에 호버 시 화살표 표시 */
+.content-slide:hover .swiper-button-next,
+.content-slide:hover .swiper-button-prev {
+  opacity: 1;
+}
+
+.content-slide .swiper-pagination {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-40%);
+}
+
+.content-slide  .custom-pagination-wrapper {
+  position: relative;
+  width: 58px;
+  height: 58px;
+}
+
+.content-slide .pagination-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content-slide .pagination-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 15px;
+  font-family: 'Gza';
+  font-weight: 300;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* 11시 방향 (현재 페이지) */
+.content-slide .swiper-pagination-current {
+  position: absolute;
+  top: 33%; 
+  left: 35%; 
+  transform: translate(-50%, -50%);
+}
+
+/* 5시 방향 (전체 페이지) */
+.content-slide .swiper-pagination-total {
+  position: absolute;
+  bottom: 33%; 
+  right: 35%; 
+  transform: translate(50%, 50%);
+}
+
+/* 슬라이드 */
+.content-slide .slide-container {
+  width: 100vw;
+  height: 620px;
+  position: relative;
+}
+
+.content-slide .slide-img{
+  min-width: 1980px;
+  height: 100%;
+}
+
+.content-slide .slide-text-overlay {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.content-slide .slide-brand {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0px 0px 28px 5px;
+  opacity: 0.9;
+}
+
+.content-slide .slide-title {
+  font-size: 66px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  white-space: pre-line; /* \n 줄바꿈 인식 */
+}
+
+.content-slide .slide-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  margin-left: 5px;
+  opacity: 0.9;
+}

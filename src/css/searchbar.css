@@ -1,0 +1,82 @@
+.tm-searchbar {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+}
+
+.tm-searchbar form {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tm-searchbar input {
+  flex: 1;
+  padding: 6px 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.tm-searchbar button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* focus시 나타나는 레이어 */
+.tm-search-layer {
+  position: absolute;
+  top: 100%;  /* input 바로 아래 */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  margin-top: 4px;
+  z-index: 2000;
+  padding: 12px;
+}
+
+.tm-search-section {
+  margin-bottom: 12px;
+}
+
+.tm-search-section:last-child {
+  margin-bottom: 0;
+}
+
+.tm-search-section .title {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.tm-search-section .desc {
+  font-size: 12px;
+  color: #777;
+}
+
+.tm-search-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tm-search-section li {
+  margin-bottom: 6px;
+}
+
+.tm-search-section li a {
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+}
+
+.tm-search-section li a:hover {
+  text-decoration: underline;
+}

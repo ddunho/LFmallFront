@@ -1,0 +1,169 @@
+
+.content{ display: flex; }
+.resultSearch{
+  padding-top: 80px;
+  padding-bottom: 20px;
+  font-size: 24px;
+  display: flex;
+}
+.rs-result{
+  color: #DC2832;
+  font-weight: bold;
+}
+.rs-count{
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.content-main{
+  padding: 30px 0px 0px 20px;
+  width: 1010px;
+}
+.searchSort{
+  margin-top: 10px;
+}
+.searchSort button{
+  margin-right: 15px;
+  background-color: #FFFFFF;
+  border: none;
+  font-size: 15px;
+}
+.content-wrap{
+  width: 980px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 20px;  
+  display: flex;
+}
+
+.filter-tags-main {
+  background-color: #f5f5f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-family: 'Pretendard', 'sans-serif';
+}
+
+/* SearchResultView.css에 추가할 스타일 */
+
+/* 필터 태그 메인 컨테이너 - 회색 배경 */
+.filter-tags-main {
+  background-color: #f5f5f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  font-family: 'Pretendard', 'sans-serif';
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-tag.blue {
+  display: inline-flex;
+  align-items: center;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 6px 10px;
+  font-size: 13px;
+  gap: 6px;
+  white-space: nowrap;
+  font-family: 'Pretendard', 'sans-serif';
+  font-weight: 400;
+}
+
+.filter-tag.blue span {
+  color: #333;
+}
+
+.filter-tag.blue button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+.filter-tag.blue button:hover {
+  opacity: 1;
+  color: #333;
+}
+
+.reset-all-a {
+  background-color: white;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+  font-family: 'Pretendard', 'sans-serif';
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.reset-all-a:hover {
+  background-color: #f8f9fa;
+  border-color: #ccc;
+  text-decoration: none;
+}
+
+/* searchSort 버튼에 active 상태 추가 */
+.searchSort button.active {
+  color: #DC2832;
+  font-weight: bold;
+}
+
+.searchSort button:hover {
+  color: #DC2832;
+}
+
+/* 검색 결과 없을 때 스타일 */
+.no-results {
+  text-align: center;
+  padding: 50px 0;
+  color: #666;
+  font-size: 16px;
+  font-family: 'Pretendard', 'sans-serif';
+}
+
+/* searchSort 버튼에 active 상태 추가 */
+.searchSort button.active {
+  color: #DC2832;
+  font-weight: bold;
+}
+
+.searchSort button:hover {
+  color: #DC2832;
+}
+
+/* 검색 결과 없을 때 스타일 */
+.no-results {
+  text-align: center;
+  padding: 50px 0;
+  color: #666;
+  font-size: 16px;
+  font-family: 'Pretendard', 'sans-serif';
+}
+
+.filter-color-circle {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #ddd;
+  flex-shrink: 0;
+}

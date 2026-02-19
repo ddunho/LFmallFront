@@ -1,0 +1,117 @@
+/* ======= 결제수단 ======= */
+
+/* ======= radio ======= */
+.pg-inputRadio{
+  height: 22px;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pg-inputRadio input{
+  width: 22px;
+  height: 22px;
+  margin: 0;
+}
+
+.pg-inputRadio.ir-bottom{
+  padding: 17px 0px 23px 0px;
+}
+
+.pg-inputRadio span{
+  margin-left: 7px;
+}
+
+/* ======= 일반결제 ======= */
+.payment-generalList ul{
+  list-style: none;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.payment-generalList .pgBtn{
+  background-color: transparent;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  width: 85px;
+  height: 58px;
+  position: relative;
+  line-height: 20px;
+  white-space: pre;
+}
+
+.payment-generalList .pgBtn img{
+  background-size: 400px auto;
+  display: inline-block;
+  font-size: 0;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.payment-generalList .pgBtn.clicked{
+  border: 1px solid black;
+}
+
+.payment-generalList .pgBtn .pgLabel{
+  background-color: #000;
+  border-radius: 2px;
+  color: #fff;
+  display: block;
+  font-size: 9px;
+  height: 20px;
+  left: 50%;
+  line-height: 20px;
+  padding: 0 8px;
+  position: absolute;
+  text-align: center;
+  top: -12px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* ======= 일반결제 - 신용카드 ======= */
+.payment-generalCredit{
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.payment-generalCredit ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 6px;
+  align-items: start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.payment-generalCredit .pgcBtn{
+  width: 100px;
+  height: 80px;
+  border: none;
+  background-color: transparent;
+}
+
+.payment-generalCredit .pgcBtn.clicked{
+  background-color: #f2f2f2;
+}
+
+.payment-generalCredit .pgcBtn img{
+  background-size: 400px auto;
+  display: inline-block;
+  font-size: 0;
+  height: 20px;
+  vertical-align: middle;
+  height: 25px;
+}
+
+.payment-generalCredit .pgcContent{
+  margin-top: 5px;
+}
+

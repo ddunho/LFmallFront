@@ -1,0 +1,635 @@
+
+.arrowRightIcon{
+  width: 6px;
+  height: 9px;
+  margin-left: 4px;
+}
+
+.detail_wrap li{
+  list-style-type: none;
+}
+
+.detail_wrap button{
+  border: none;
+  background-color: white;
+  padding: 0;
+}
+
+.detail_wrap a{
+  color: black;
+}
+
+.detail_wrap ul{
+  padding: 0;
+  margin: 0;
+}
+
+/* ======= 상단 카테고리 ======= */
+.detail_wrap{
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.detail_titlearea{
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.detail_titlearea ul{
+  display: flex;
+  align-items: center;
+}
+
+.detail_titlearea img{
+  height: 10px;
+  margin: 3.5px 6px 0px 6px;
+  opacity: 0.5;
+}
+
+.detail_titlearea li:hover{
+  text-decoration: underline;
+}
+
+
+.detail_dividearea{
+  display: flex;
+}
+
+.detail_leftarea{
+  width: 750px;
+}
+
+/* ======= 왼쪽(사진) 구역 ======= */
+.dl_divedearea1{
+  display: flex;
+  justify-content: space-between;
+  width: 750px;
+  height: 787px;
+}
+
+.detail_leftarea .selected_img{
+  width: 620px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.detail_leftarea .selected_img img{
+  width: 100%;
+}
+
+.detail_leftarea .imgList{
+  width: 106px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.detail_leftarea .imgList .imgBox{
+  width: 100%;
+  height: 134px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.detail_leftarea .imgList img{
+  width: 100%;
+}
+
+.imgList .imgWrapper {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid white;
+}
+
+.imgList .imgWrapper.selected{
+  border: 1px solid black;
+}
+
+.imgList .imgWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.06);
+  pointer-events: none; /* 클릭 방해 안 함 */
+  border: 1px solid white;
+  opacity: 0.2;
+}
+
+
+.imgList .imgWrapper:hover::after{
+  border: 1px solid #aaaaaa;
+  opacity: 1 !important;
+}
+
+.imgList .imgWrapper.selected:hover::after{
+  border: none !important;
+  opacity: 1 !important;
+}
+
+/* ======= 관련 검색어 구역 ======= */
+.product_relatedSearch{
+  padding: 28px 110px 28px 0px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.product_relatedSearch .pr_title{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product_relatedSearch .pr_searchcontent{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.product_relatedSearch .pr_searchcontent a{
+  background-color: #f5f5f5;
+  border-radius: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 14px;
+  height: 35px;
+  letter-spacing: 0;
+  line-height: 35px;
+  padding: 0px 16px;
+  white-space: nowrap;
+}
+
+.product_relatedSearch .pr_searchcontent a:hover{
+  background-color: #f0f0f0;
+}
+
+/* ======= 상품 추천 구역 ======= */
+.product_recommend{
+  margin-top: 28px;
+}
+
+.product_recommend .prc_title{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product_recommend .prc_slide{
+  width: 100%;
+  height: 369px;
+}
+
+/* ======= 배너 구역 ======= */
+.product_banner{
+  width: 750px;
+}
+
+.product_banner img{
+  padding: 50px 0px;
+}
+
+/* ======= 상품 정보탭 구역 ======= */
+.product_tabsContainer a span {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  color: #757575;
+  height: 60px;
+  cursor: pointer;
+  text-align: center;
+  align-content: center;
+  font-size: 18px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* 밑줄을 ::after로 만듦 */
+.product_tabsContainer a span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  
+  transform: scaleX(0);           /* 안 보이게 */
+  transform-origin: center;       /* 가운데 기준으로 확장 */
+  transition: transform 0.3s ease;
+}
+
+.product_tabsContainer a span:hover {
+  font-weight: bold;
+  color: black;
+}
+
+.product_tabsContainer a span:hover::after {
+  transform: scaleX(1);           /* 밑줄이 가운데에서 퍼짐 */
+}
+
+/* ======= 상품 상세 이미지 구역 ======= */
+.detail_img_detail{
+  padding: 30px 0px;
+  line-height: 20px;
+}
+
+.detail_img_detail p{
+  padding-top: 30px;
+  font-size: 15px;
+  margin: 0;
+}
+
+.detail_img_detail .di_img{
+  width: 100%;
+  display: block;
+}
+
+
+/* ======= 오른쪽(상품 정보) 구역 ======= */
+.detail_rightarea{
+  margin-left: 50px;
+}
+
+.detail_rightarea .product_information{
+  width: 440px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.product_brandName{
+  display: flex;
+  justify-content: space-between;
+}
+
+.product_brandName img{ 
+  height: 10px;
+  margin: 3.5px 6px 0px 6px; 
+  opacity: 0.5;
+}
+
+.product_brandName .product_shardIcon{
+  width: 20px;
+  height: 22px;
+  opacity: 1;
+  margin-bottom: 7px;
+}
+
+.product_name{
+  font-size: 22px;
+  line-height: 28px;
+  width: 85%;
+}
+
+.product_isNote{
+  margin-top: 12px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #e9e9e9;
+  display: inline-block;
+}
+
+/* ======= 가격 왼쪽 구역 ======= */
+.product_priceBox{
+  margin-top: 12px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product_price{
+  color: #999999;
+  text-decoration: line-through;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product_discountBox{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.product_discount{
+  color: #DC2832;
+  margin-right: 8px;
+}
+
+.product_won{
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.product_discountBox img{
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
+
+/* ======= 가격 오른쪽 구역 ======= */
+.product_priceBox_right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  width: 120px;
+  height: 44px;
+  padding: 0px 10px;
+  border: 1px solid black;
+}
+
+.product_priceBox_right button{
+  display: flex;
+}
+
+.product_priceBox_right img{
+  width: 13px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+/* ======= 배송 ======= */
+.product_card{
+  padding: 16px 0px;
+  display: flex;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* ======= 배송 왼쪽 구역 ======= */
+.product_card_left{
+  color: #757575;
+  width: 80px;
+}
+
+/* ======= 배송 오른쪽(위) 구역 ======= */
+.product_card_right{
+  width: 360px;
+}
+
+.product_delivery_right_top .pd_delivery_type{
+  display: flex;
+  align-items: center;
+}
+
+.pd_delivery_type img{
+  height: 18px;
+}
+
+.pd_delivery_type .pd_dilivery_state{
+  font-weight: bold;
+}
+
+.pd_delivery_type .pd_verticalBar{
+  margin: 0px 7px;
+  color: #dddddd;
+  font-weight: 400;
+}
+
+.pd_free_delivery{
+  margin-top: 8px;
+}
+
+/* ======= 배송 오른쪽(아래) 구역 ======= */
+.product_delivery_right_bottom{
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eeeeee;
+}
+
+.product_delivery_right_bottom button{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pd_deliveryDate_left_top{
+  display: flex;
+  font-weight: bold;
+}
+
+.pd_deliveryDate_left_top button{
+  width: 18px;
+}
+
+.pd_deliveryDate_left img{
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+}
+
+.pd_deliveryDate_left_bottom{
+  margin-top: 4px;
+  color: #757575;
+  text-align: start;
+}
+
+.pd_deliveryDate_right img{
+  width: 15px;
+  padding-top: 5px;
+}
+
+/* ======= 배송확률 구역 ======= */
+.pd_deliveryDateBtn{
+  border: 1px solid #eeeeee;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 16px 0 16px;
+  transition: max-height 0.2s ease, opacity 0.1s ease, padding-top 0.2s ease, padding-bottom 0.2s ease, margin-top 0.2s ease;
+}
+
+.pd_deliveryDateBtn.show {
+  margin-top: 16px;
+  padding: 16px;
+  max-height: 97px; /* div 실제 예상 높이보다 조금 크게 */
+  opacity: 1;
+}
+
+.pd_date1, .pd_date2, .pd_date3{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pd_date2, .pd_date3{
+  margin-top: 4px;
+}
+
+.pd_date1, .pd_date3{
+  color: #757575;
+}
+
+/* ======= 카드혜택 ======= */
+.product_card_right button{
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+}
+
+.pc_cardBenefit{
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 버튼 사이만 간격 */
+}
+/* ======= 옵션 선택(sticky) ======= */
+.product_stickyarea{
+  position: sticky;
+  top: 0px;
+  padding-top: 28px;
+}
+
+.ps_optionContent{
+  max-height: 417px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.ps_sizeContent, .ps_colorContent{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ======= 색상 선택 구역 ======= */
+.ps_optionTitle{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.ps_colorTitle{
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ======= 사이즈 선택 구역 ======= */
+.ps_sizeTitle{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.ps_sizeTitle_left{
+  font-weight: 600;
+}
+
+.ps_sizeTitle_right button{
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.ps_selectBox{
+  font-size: 15px;
+  height: 44px;
+  padding: 0px 12px;
+  border: 1px solid #dddddd;
+  text-align: center;
+  align-content: center;
+}
+
+.ps_selectBox:hover, .ps_selectBox.selected{
+  background-color: #F9F9F9;
+  border: 1px solid black;
+}
+
+
+/* ======= 총 상품금액 구역 ======= */
+.product_totalAmount{
+  margin: 20px 0px -12px 0px;
+  font-size: 15px;
+  text-align: end;
+  align-content: center;
+  height: 34px;
+}
+
+.product_totalAmount .pt_price{
+  font-size: 24px;
+  color: #DC2832;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* ======= 버튼 구역 ======= */
+.product_buttonarea{
+  margin-top: 28px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product_buttonarea button{
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.pb_likeBtn:hover, .pb_cartBtn:hover{
+  background-color: #F9F9F9;
+}
+
+.pb_likeBtn{
+  width: 60px;
+  padding: 12px 10px;
+}
+
+.pb_likeBtn img{
+  width: 26px;
+}
+
+.pb_likeBtn div{
+  font-size: 9px;
+}
+
+.pb_cartBtn, .pb_buyBtn{
+  width: 185px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.pb_buyBtn{
+  background-color: black !important;
+  color: white;
+}
+
+
+/* ======= 모달 구역 ======= */
+.modal_wrap .modal_wrap{
+  width: 100%;
+}
+
+.modal_wrap .modal_btnarea{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal_wrap .modal_msg{
+  padding-top: 12px;
+  text-align: center;
+  white-space: pre-wrap;
+  line-height: 20px;
+}
+
+.modal_btnarea button{
+  width: 120px;
+  height: 40px;
+  border-radius: 2px;
+  font-family: 'pretendard';
+  font-size: 14px;
+}
+
+.modal_btnarea .goCartBtn{
+  border: 1px solid #eeeeee;
+}
+
+.modal_btnarea .exitBtn{
+  background-color: black;
+  color: white;
+}

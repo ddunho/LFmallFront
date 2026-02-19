@@ -1,0 +1,176 @@
+.sidebar {
+  width: 230px;
+  border-right: 1px solid #eeeeee;
+  padding: 30px 20px 0px 0px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Pretendard', 'sans-serif';
+  font-weight: 300;
+}
+
+.sb-searchbar {
+  width: 210px;
+  display: flex;
+  border: 1px solid #dddddd;
+  margin-bottom: 15px;
+}
+
+.inputSearch {
+  width: 170px;
+  height: 38px;
+  padding: 0px 15px;
+  border: none;
+  box-sizing: border-box;
+  z-index: 2;
+  font-family: 'Pretendard', 'sans-serif';
+}
+
+.inputSearch:focus {
+  outline: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1.5px #015ecc;
+}
+
+.buttonSearch {
+  width: 38px;
+  height: 38px;
+  background-color: #FFFFFF;
+  border: none;
+  padding: 0px;
+  margin: 0;
+}
+
+.buttonSearch img {
+  width: 18px;
+  height: 18px;
+  padding-top: 2px;
+}
+
+.searchFilter {
+  padding: 20px 0px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.sb-dropdown-common {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.sb-dropdown-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 18px 0px;
+}
+
+.sb-dropdown-menu div {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.sb-dropdown-menu img {
+  width: 15px;
+}
+
+.dropdown-box {
+  padding-bottom: 12px;
+}
+
+/* 일반 체크박스 아이템 */
+.inputCheck {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  font-family: 'Pretendard', 'sans-serif';
+  font-weight: 300;
+}
+
+.inputCheck input {
+  accent-color: #DC2832;
+}
+
+.inputCheck input:checked + label,
+.inputCheck input:checked + div {
+  color: #DC2832;
+}
+
+.inputCheck label,
+.inputCheck div {
+  padding-left: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* 색상 박스 스타일 */
+.color-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.checkColorClick {
+  width: 20x;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+}
+
+.checkColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.checkColor:hover {
+  border: 2px solid #333;
+  transform: scale(1.1);
+}
+
+.checkColor.selected {
+  border: 2px solid #DC2832;
+}
+
+.checkColor.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  font-size: 10px;
+}
+
+.checkColor.selected[style*="rgb(255, 255, 255)"]::after,
+.checkColor.selected[style*="#fff"]::after,
+.checkColor.selected[style*="#ffffff"]::after,
+.checkColor.selected[style*="#f5f5dc"]::after {
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* 색상 옵션 아이템 스타일 */
+.color-option-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.color-option-item input[type="checkbox"] {
+  display: none;
+}
+.color-label {
+  display: none; /* 색상명 텍스트 숨김 */
+}

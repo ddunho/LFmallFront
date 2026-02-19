@@ -1,0 +1,79 @@
+.rimenu-dropdown-container {   
+    position: absolute;   
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 2000; 
+}  
+
+.rimenu-dropdown-trigger {   
+    position: relative;   
+    width: 100%;   
+    height: 100%; 
+}  
+
+.rimenu-dropdown {   
+    position: absolute;  /* fixed로 변경 */
+    top: 100%;  /* 헤더 아래 위치 조정 */
+    left: 0; /* 전체 너비 */
+    background: white;   
+    border: 1px solid #ddd;   
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);   
+    z-index: 2000;   
+    display: flex;   
+    min-height: 750px; 
+}  
+
+.rimenu-depth-column {   
+    width: 180px;   
+    min-height: 750px;   
+    border-right: 1px solid #eee;   
+    background: white;   
+    overflow-y: auto;   
+    overflow-x: hidden;   
+    scrollbar-width: none;   
+    -ms-overflow-style: none; 
+}  
+
+.rimenu-depth-column::-webkit-scrollbar {   
+    display: none; 
+}  
+
+.rimenu-depth-column:last-child {   
+    border-right: none; 
+}  
+
+.rimenu-menu-item {   
+    position: relative;   
+    border-bottom: none;
+    transition: background-color 0.2s ease; 
+}  
+
+.rimenu-menu-item:last-child {   
+    border-bottom: none; 
+}  
+
+.rimenu-menu-item:hover {   
+    background: #f7f7f7; 
+}  
+
+.rimenu-menu-item.active {   
+    background: #f0f0f0; 
+}  
+
+.rimenu-menu-link {   
+    display: block;   
+    padding: 10px 16px;
+    font-size: 13px;   
+    color: #333;   
+    text-decoration: none;   
+    white-space: nowrap;   
+    height: 38px;
+    line-height: 20px;   
+    box-sizing: border-box; 
+    text-indent: 20px;
+}  
+
+.rimenu-menu-link:hover {   
+    color: #000; 
+}

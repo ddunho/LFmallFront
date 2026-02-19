@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Gza';
+  src: local('Gza Regular'), local('Gza-Regular'),
+      url('../fonts/Gza-Regular.woff2') format('woff2'),
+      url('../fonts/Gza-Regular.woff') format('woff'),
+      url('../fonts/Gza-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ========= 타이틀 ========= */
+.productContent-title{
+  font-size: 28px;
+  font-weight: 400;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ========= 카테고리 ========= */
+.productContent{ width: 100%; display: block; }
+.productContent-sort{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+.productContent-sort button{
+  padding: 0px 0px 8px 0px;
+  background-color: #fff;
+  border: none;
+  font-size: 15px;
+  border-bottom: 3px solid transparent; /* 포커스될 공간 미리 확보 */
+}
+
+.productContent-sort .clicked{
+  border-bottom: 3px solid black;
+}
+
+/* ========= 목록 ========= */
+.productContent-main{ 
+  width: 100%;
+  min-height: 400px;
+  margin: 30px 0px 130px 0px;
+}
+
+.productContent-wrap{
+  width: 1240px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 20px;
+  box-sizing: border-box;
+}
+
+.productContent-wrap .nonProducts{
+  margin: 140px auto;
+  font-size: 18px;
+  color: #9e9e9e;
+}

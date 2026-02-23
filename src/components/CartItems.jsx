@@ -46,7 +46,7 @@ const CartItem = () => {
       if (member && member.member_id) {
         getCart();
       } else {
-        navigate("/app/login");
+        /*navigate("/app/login"); todo : 여기 나중에 주석 해제해야함.*/
       }
     }, 100);
 

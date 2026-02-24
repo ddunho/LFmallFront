@@ -33,6 +33,11 @@ export default function ProductDetail(){
   const [menuPath, setMenuPath] = useState();
   const [categories, setCategories] = useState();
   const [selectedImg, setSelectedImg] = useState();
+  const [zoomState, setZoomState] = useState({
+    active: false,
+    x: 50,
+    y: 50,
+  });
   const [deliveryBtn, setDeliveryBtn] = useState(false);
   const [options, setOptions] = useState([]);
   const [selectedColor, setSelectedColor] = useState(0);
@@ -96,6 +101,22 @@ export default function ProductDetail(){
   const imgClick = ( name ) => { setSelectedImg(name); }
   const deliveryClick = () => { setDeliveryBtn(!deliveryBtn); }
   const colorClick = ( id ) => { setSelectedColor(id); }
+
+  const handleZoomMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    setZoomState({
+      active: true,
+      x: Math.min(100, Math.max(0, x)),
+      y: Math.min(100, Math.max(0, y)),
+    });
+  };
+
+  const handleZoomLeave = () => {
+    setZoomState((prev) => ({ ...prev, active: false }));
+  };
   
   const sizeClick = ( option_id ) => {
     const alreadySelected = selectedOption.some(item => item.option_id === option_id);
@@ -199,6 +220,10 @@ export default function ProductDetail(){
     setCategories( categories );
   }, [product]);
 
+  useEffect(() => {
+    setZoomState((prev) => ({ ...prev, active: false }));
+  }, [selectedImg]);
+
   // 쇼핑백 담기 - 모달 메시지 처리 개선
   const addCartCallBack = ( res ) => {
     console.log('res', res);
@@ -290,7 +315,24 @@ export default function ProductDetail(){
             {/* 상품 썸네일 이미지 구역 */}
             <div className="selected_img">
               {
-                selectedImg && <img src={ `/img/${selectedImg}` } />
+                selectedImg && (
+                  <div
+                    className="selected_img_inner"
+                    onMouseMove={handleZoomMove}
+                    onMouseEnter={handleZoomMove}
+                    onMouseLeave={handleZoomLeave}
+                  >
+                    <img src={ `/img/${selectedImg}` } />
+                    <div
+                      className={`selected_img_zoom ${zoomState.active ? "active" : ""}`}
+                      style={{
+                        backgroundImage: `url(/img/${selectedImg})`,
+                        backgroundSize: "240%",
+                        backgroundPosition: `${zoomState.x}% ${zoomState.y}%`,
+                      }}
+                    />
+                  </div>
+                )
               }
             </div>
             <div className="imgList">

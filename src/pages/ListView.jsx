@@ -17,10 +17,24 @@ export default function ListView(){
     setSortId(id);
   }
 
-  const callBackFunc = ( res ) => { 
+  const callBackFunc = ( res ) => {
     setProducts(prev => [...prev, ...res]);
   }
+
   useEffect(() => {
+    setProducts([]);
+    setSortId(0);
+
+    if (category_id == 1) {
+      FetchCall("/api/product/list", "POST", { category_id: 0, gender: "female" }, callBackFunc);
+      return;
+    }
+
+    if (category_id == 2) {
+      FetchCall("/api/product/list", "POST", { category_id: 0, gender: "male" }, callBackFunc);
+      return;
+    }
+
     FetchCall("/api/product/list", "POST", { category_id }, callBackFunc);
     if( category_id == 3){
       FetchCall("/api/product/list", "POST", { "category_id" : 4 }, callBackFunc);

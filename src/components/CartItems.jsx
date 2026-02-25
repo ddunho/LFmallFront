@@ -6,7 +6,7 @@ import CartPricediv from "./CartPricediv";
 import { useCartPrice } from "../CartPriceContext";
 import { ChangeOptionModal } from "./ChangeOptionModal";
 import { ColorNames } from "./ColorNamesData";
-
+console.log("🔥 cartList.jsx loaded");
 const CartItem = () => {
   const navigate = useNavigate();
   const { member } = useAuth();
@@ -23,29 +23,34 @@ const CartItem = () => {
     FetchCall(
       `/api/cart/carts`,
       "POST",
-      { member_id: member.member_id },
+      {},
       (res) => {
+        console.log("res.success : " , res.success);
         if (res.success) {
+          
+
           setCartList(res.data);
           // 장바구니 데이터 로드 시 체크박스 상태 초기화
           const initialCheckbox = {};
           res.data.forEach((item) => {
-            initialCheckbox[item.cart_id] = false;
+            initialCheckbox[item.cartId] = false;
           });
           setSelectCheckBox(initialCheckbox);
           setAllselectcheckbox(false);
 
           setSelectedItems([]);
         }
+        else {console.log("res.success : ", res.success)}
       }
     );
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (member && member.member_id) {
+      if (member) { // && member.memberId
         getCart();
       } else {
+        console.log(member);
         /*navigate("/app/login"); todo : 여기 나중에 주석 해제해야함.*/
       }
     }, 100);
@@ -65,10 +70,10 @@ const CartItem = () => {
 
     // Context의 selectedItems 업데이트
     if (isChecked) {
-      const selectedProduct = cartList.find((item) => item.cart_id == cartId);
+      const selectedProduct = cartList.find((item) => item.cartId == cartId);
       setSelectedItems((prev) => [...prev, selectedProduct]);
     } else {
-      setSelectedItems((prev) => prev.filter((item) => item.cart_id != cartId));
+      setSelectedItems((prev) => prev.filter((item) => item.cartId != cartId));
     }
 
     // 전체 선택 상태 확인
@@ -90,7 +95,7 @@ const CartItem = () => {
     // 모든 체크박스 상태 업데이트
     const newSelectCheckbox = {};
     cartList.forEach((item) => {
-      newSelectCheckbox[item.cart_id] = newAllSelectState;
+      newSelectCheckbox[item.cartId] = newAllSelectState;
     });
     setSelectCheckBox(newSelectCheckbox);
 
@@ -272,12 +277,12 @@ const CartItem = () => {
         <tbody className="cart-table__body">
           {cartList.length > 0 ? (
             cartList.map((item, index) => (
-              <tr key={item.cart_id || index}>
+              <tr key={item.cartId || index}>
                 <td className="cart-table__checkbox">
                   <input
                     type="checkbox"
-                    value={item.cart_id}
-                    checked={selectCheckbox[item.cart_id] || false}
+                    value={item.cartId}
+                    checked={selectCheckbox[item.cartId] || false}
                     onChange={onHandleCheckbox}
                   />
                 </td>
@@ -286,23 +291,25 @@ const CartItem = () => {
                   <div className="cart-table__product-image">
                     <div className="cartitem-eachimg">
                       <img
-                        src={`/img/${item.img_name}`}
-                        alt={item.product_name}
+                        src={`/img/${item.imgName}`}
+                        alt={item.productName}
                         className="cartitem-product-img"
                         onError={(e) => {
-                          e.target.src = "/placeholder-image.jpg";
+                          if (e.currentTarget.dataset.fallbackApplied) return; // ✅ 재진입 차단
+                          e.currentTarget.dataset.fallbackApplied = "1";
+                          e.currentTarget.src = "/placeholder-image.jpg";
                         }}
                       />
                     </div>
                   </div>
 
                   <div className="cart-table__product-info">
-                    <div className="cart-table__brand">{item.brand_name}</div>
+                    <div className="cart-table__brand">{item.brandName}</div>
                     <div className="cart-table__product-name">
-                      {item.product_name || "상품정보"}
+                      {item.productName || "상품정보"}
                     </div>
                     <div className="cart-table__options">
-                      {item.color_name === "X" ? "" : `${getColorKoName(item.color_name)} / `}{item.size_name} / {" "}
+                      {item.color_name === "X" ? "" : `${getColorKoName(item.colorName)} / `}{item.sizeName} / {" "}
                       {item.quantity}개
                     </div>
 
@@ -311,7 +318,7 @@ const CartItem = () => {
                         className="cart-table__quantity-select"
                         value={item.quantity}
                         onChange={(e) =>
-                          handleQuantityChange(item.cart_id, e.target.value)
+                          handleQuantityChange(item.cartId, e.target.value)
                         }
                       >
                         {[...Array(item.stock)].map((_, i) => (
@@ -346,12 +353,12 @@ const CartItem = () => {
 
                 <td className="cart-table__price">
                   <div className="cart-table__original-price">
-                    {formatPrice(item.price * item.quantity)}원
+                    {formatPrice(item.productPrice * item.cartQuantity)}원
                   </div>
                   <div className="cart-table__current-price">
                     {formatPrice(
-                      ((item.price * (100 - (item.discount || 0))) / 100) *
-                        item.quantity
+                      ((item.productPrice * (100 - (item.discount || 0))) / 100) *
+                        item.cartQuantity
                     )}
                     원
                   </div>
@@ -374,7 +381,7 @@ const CartItem = () => {
                   </button>
                   <button
                     className="cart-table__btn cart-table__btn--danger"
-                    onClick={() => onClickDelete(item.cart_id)}
+                    onClick={() => onClickDelete(item.cartId)}
                   >
                     삭제
                   </button>

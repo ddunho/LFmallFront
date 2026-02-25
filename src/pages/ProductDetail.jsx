@@ -33,7 +33,7 @@ export default function ProductDetail(){
   const [menuPath, setMenuPath] = useState();
   const [categories, setCategories] = useState();
   const [selectedImg, setSelectedImg] = useState();
-  const [zoomState, setZoomState] = useState({
+    const [zoomState, setZoomState] = useState({
     active: false,
     x: 50,
     y: 50,
@@ -129,7 +129,7 @@ export default function ProductDetail(){
     setSelectedOption((prev) => {
       const newArr = [
         ...prev,
-        { member_id, option_id, quantity: 1, product }
+        { productId, option_id, quantity: 1, product } // member_id 삭제 후 stock_idㄹ 추가
       ];
       newArr.sort((a,b) => a.option_id - b.option_id);
       return newArr;
@@ -215,6 +215,7 @@ export default function ProductDetail(){
     if ( !product ) return;
 
     const menuPath = product.path.split("/");
+
     const categories = findLabel( menuPath );
     setMenuPath( menuPath );
     setCategories( categories );
@@ -222,10 +223,10 @@ export default function ProductDetail(){
 
   useEffect(() => {
     setZoomState((prev) => ({ ...prev, active: false }));
-  }, [selectedImg]);
-
+  }, [selectedImg]);  
+  
   // 쇼핑백 담기 - 모달 메시지 처리 개선
-  const addCartCallBack = ( res ) => {
+  const addCartCallBack = ( res ) => { 
     console.log('res', res);
 
     // 옵션 선택 x
@@ -251,6 +252,7 @@ export default function ProductDetail(){
   }
 
   const addCartItems = () => {
+    //console.log("FetchCall addCartItems data : ", selectedOption);
     FetchCall("/api/cart/addcart", "POST", selectedOption, addCartCallBack);
   }
 

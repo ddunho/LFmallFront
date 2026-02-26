@@ -24,8 +24,10 @@ export default function OrderItems({
   const [cntorderItem, setCntorderItem] = useState(0);
   const nowcartProductList = sessionStorage.getItem("cartBuy");
   const { setSelectedItems, formatPrice } = useCartPrice();
-
+  const location = useLocation();
+  const prevPathRef = useRef(location.pathname); 
   useEffect(() => {
+    console.log("useEffect started!");
     // 먼저 모든 데이터를 확인
     const cartBuyData = sessionStorage.getItem("cartBuy");
     const productInfoData = localStorage.getItem("product_info");
@@ -79,10 +81,10 @@ export default function OrderItems({
         console.log("바로구매 데이터 처리");
 
         const productInfo = JSON.parse(productInfoData);
-        const nowBuy = JSON.parse(nowBuyData);
+        const nowBuy = [JSON.parse(nowBuyData)];
 
         console.log("상품 기본정보", productInfo, "상품 옵션정보", nowBuy);
-
+        
         unifiedOrderList = nowBuy.map((buyItem) => ({
           img_name: productInfo.img_names
             ? productInfo.img_names[0]
@@ -130,12 +132,41 @@ export default function OrderItems({
       sessionStorage.removeItem("nowBuy");
       sessionStorage.removeItem("cntcartBuy");
       setOrderList([]);
-    }
+    }/*
     sessionStorage.removeItem("cartBuy");
     localStorage.removeItem("product_info");
     sessionStorage.removeItem("nowBuy");
-    sessionStorage.removeItem("cntcartBuy");
+    sessionStorage.removeItem("cntcartBuy");*/ 
+    /* **********NOTICE***********
+    이 order창을 벗어나면 그때 sessionStorage, localStorage에 저장된 주문정보를 지울것.
+    StrictMode에선 2번 실행되는 문제가 발생하므로 여기에 쓰지말것.
+    
+
+    *************************************************
+    [location.pathname]을 의존성으로 가지는 useEffect()에서 sessionStorage, localStorage에 저장된 주문정보를 지우도록 수정.
+
+    */ 
+    
+    console.log("useEffect completed!");
+    
+    
   }, []);
+
+  /*************페이지를 벗어날때 sessionStorage, localStorage에 있는 정보를 지움************** */
+  useEffect(() => {
+    const prevPath = prevPathRef.current;
+    const currPath = location.pathname;
+
+    // ✅ "주문 페이지"에서 "다른 페이지"로 이동할 때만 정리
+    if (prevPath === "/app/order" && currPath !== "/app/order") {
+      sessionStorage.removeItem("nowBuy");
+      sessionStorage.removeItem("cartBuy");
+      localStorage.removeItem("product_info");
+    }
+
+    prevPathRef.current = currPath;
+  }, [location.pathname]);
+
 
   const getDeliveryDate = () => {
     const now = new Date();

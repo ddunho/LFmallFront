@@ -45,11 +45,11 @@ export const CartPriceProvider = ({ children }) => {
 
     selectedItems.forEach(item => {
       // 원래 가격 계산
-      const itemOriginalPrice = item.price * item.quantity;
+      const itemOriginalPrice = item.productPrice * item.cartQuantity;
       totalOriginalPrice += itemOriginalPrice;
 
       // 할인 금액 계산
-      const discountRate = item.discount || 0;
+      const discountRate = item.productDiscount || 0;
       const itemDiscountAmount = (itemOriginalPrice * discountRate) / 100;
       totalDiscountAmount += itemDiscountAmount;
 
@@ -62,7 +62,7 @@ export const CartPriceProvider = ({ children }) => {
       }
 
       // 아이템 개수
-      totalItemCount += item.quantity;
+      totalItemCount += item.cartQuantity;
     });
 
     const finalPrice = totalOriginalPrice - totalDiscountAmount + totalDeliveryFee;

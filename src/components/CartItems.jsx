@@ -51,12 +51,21 @@ const CartItem = () => {
         getCart();
       } else {
         console.log(member);
-        /*navigate("/app/login"); todo : 여기 나중에 주석 해제해야함.*/
+        navigate("/app/login");
       }
     }, 100);
-
+    
     return () => clearTimeout(timer);
   }, [member, navigate]);
+
+  // selectedItems 변경될 때마다 저장(여러개)
+  useEffect(() => {
+    if (selectedCartItem && selectedCartItem.length > 0) {
+      sessionStorage.setItem("cartBuy", JSON.stringify(selectedCartItem));
+    } else {
+      sessionStorage.removeItem("cartBuy");
+    }
+  }, [selectedCartItem]);
 
   // 개별 체크박스 핸들러
   const onHandleCheckbox = (e) => {
@@ -122,7 +131,7 @@ const CartItem = () => {
           console.log("수량업데이트", res.message);
           setCartList((prevCartList) =>
             prevCartList.map((item) =>
-              item.cart_id === cartId
+              item.cartId === cartId
                 ? { ...item, quantity: parseInt(newQuantity) }
                 : item
             )
@@ -241,7 +250,19 @@ const CartItem = () => {
   };
 
   const onClickbuyNow = (item) => {
-    onebuyNow()
+      const productCallBack = ( res ) => {
+        localStorage.setItem("product_info", JSON.stringify(res));
+      }
+      const optionCallBack = ( res ) => {
+        localStorage.setItem("nowBuy", JSON.stringify(res));
+      }
+
+    FetchCall("/api/product/detail", "POST", item.productId, productCallBack);
+    FetchCall("/api/product/option", "POST", item.optionId, optionCallBack);
+    // todo : 장바구니 item의 option 정보가 어디에 있더라?
+    sessionStorage.setItem("nowBuy", JSON.stringify(item));
+    navigate("/app/order");
+    //onebuyNow()
   };
 
   return (
@@ -309,19 +330,19 @@ const CartItem = () => {
                       {item.productName || "상품정보"}
                     </div>
                     <div className="cart-table__options">
-                      {item.color_name === "X" ? "" : `${getColorKoName(item.colorName)} / `}{item.sizeName} / {" "}
-                      {item.quantity}개
+                      {item.optionColor === "X" ? "" : `${getColorKoName(item.optionColor)} / `}{item.optionSize} / {" "}
+                      {item.cartQuantity}개
                     </div>
 
                     <div className="cart-table__quantity-selector">
                       <select
                         className="cart-table__quantity-select"
-                        value={item.quantity}
+                        value={item.cartQuantity}
                         onChange={(e) =>
                           handleQuantityChange(item.cartId, e.target.value)
                         }
                       >
-                        {[...Array(item.stock)].map((_, i) => (
+                        {[...Array(item.stock)].map((_, i) => ( // todo : db에 물품 재고 수량 column이 없음.
                           <option key={i + 1} value={i + 1}>
                             {i + 1}
                           </option>

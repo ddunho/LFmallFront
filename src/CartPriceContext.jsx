@@ -45,7 +45,7 @@ export const CartPriceProvider = ({ children }) => {
 
     selectedItems.forEach(item => {
       // 원래 가격 계산
-      const itemOriginalPrice = item.productPrice * item.cartQuantity;
+      const itemOriginalPrice = (item.productPrice || item.price) * (item.cartQuantity || item.quantity);
       totalOriginalPrice += itemOriginalPrice;
 
       // 할인 금액 계산

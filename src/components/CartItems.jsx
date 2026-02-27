@@ -254,12 +254,14 @@ const CartItem = () => {
         localStorage.setItem("product_info", JSON.stringify(res));
       }
       const optionCallBack = ( res ) => {
-        localStorage.setItem("nowBuy", JSON.stringify(res));
+        sessionStorage.setItem("nowBuy", JSON.stringify(res));
       }
 
     FetchCall("/api/product/detail", "POST", item.productId, productCallBack);
-    FetchCall("/api/product/option", "POST", item.optionId, optionCallBack);
-    // todo : 장바구니 item의 option 정보가 어디에 있더라?
+    
+    // todo : /api/product/option이 아니라, 다른 곳에서 option 정보를 불러와야 한다.
+    //FetchCall("/api/product/option", "POST", item.optionId, optionCallBack);
+    
     sessionStorage.setItem("nowBuy", JSON.stringify(item));
     navigate("/app/order");
     //onebuyNow()

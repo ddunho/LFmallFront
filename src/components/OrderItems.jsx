@@ -23,7 +23,8 @@ export default function OrderItems({
   const [orderList, setOrderList] = useState([]);
   const [cntorderItem, setCntorderItem] = useState(0);
   const nowcartProductList = sessionStorage.getItem("cartBuy");
-  const { setSelectedItems, formatPrice } = useCartPrice();
+  const { setSelectedItems, priceInfo, formatPrice } = useCartPrice();
+  
   const location = useLocation();
   const prevPathRef = useRef(location.pathname); 
   useEffect(() => {
@@ -86,29 +87,30 @@ export default function OrderItems({
         console.log("상품 기본정보", productInfo, "상품 옵션정보", nowBuy);
         
         unifiedOrderList = nowBuy.map((buyItem) => ({
-          img_name: productInfo.img_names
+          /*img_name: productInfo.img_names
             ? productInfo.img_names[0]
-            : productInfo.img_name,
-          product_name: productInfo.name,
-          brand_name: productInfo.brand_name,
-          price: productInfo.price,
-          discount: productInfo.discount || 0,
-          free_delivery: productInfo.free_delivery,
-          product_id: productInfo.product_id,
-          delivery_state: productInfo.delivery_state,
-          quantity: buyItem.quantity,
+            : productInfo.img_name,*/
+          img_name: productInfo.imgList[0].name,
+          product_name: productInfo.product.name,
+          brand_name: productInfo.product.brand_name,
+          price: productInfo.product.price,
+          discount: productInfo.product.discount || 0,
+          free_delivery: productInfo.product.free_delivery,
+          product_id: productInfo.product.product_id,
+          delivery_state: productInfo.product.delivery_state,
+          quantity: buyItem.optionQuantity,
           option_id: buyItem.option_id,
           stock: buyItem.stock,
           size_name: buyItem.size_name,
           color_name: buyItem.color_name,
           total_price:
-            ((productInfo.price * (100 - (productInfo.discount || 0))) / 100) *
-            buyItem.quantity,
+            ((productInfo.product.price * (100 - (productInfo.product.discount || 0))) / 100) *
+            buyItem.optionQuantity,
           purchase_type: "direct",
         }));
 
         setCntBuy(nowBuy.length);
-
+        
         console.log("바로구매정보", unifiedOrderList);
       }
       // 우선순위 3: product_info만 있는 경우 (불완전한 바로구매 데이터)
